@@ -5,9 +5,13 @@ const port = process.env.PORT || 5454;
 
 const server = express();
 
+const health = require('./routes/health');
+
 server.get('/', (req, res) => {
     res.send(202, { "body": "Well, hello there..." });
 });
+
+server.get('/health', health.ping);
 
 server.listen(port, (error) => {
     if( error ) {
