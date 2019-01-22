@@ -1,17 +1,19 @@
 const express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser');
 
 const port = process.env.PORT || 5454;
 
 const server = express();
 
 const health = require('./routes/health');
+const vcard = require('./routes/vcard');
 
-server.get('/', (req, res) => {
-    res.send(202, { "body": "Well, hello there..." });
-});
+server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: false }));
 
 server.get('/health', health.ping);
+server.get('/card', vcard.render);
 
 server.listen(port, (error) => {
     if( error ) {
