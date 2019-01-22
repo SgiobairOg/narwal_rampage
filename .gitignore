@@ -2,3 +2,6 @@ node_modules/
 
 # Lerna
 lerna-debug.log
+
+# OSX
+.DS_Store
