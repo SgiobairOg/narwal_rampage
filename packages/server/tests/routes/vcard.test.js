@@ -3,18 +3,18 @@ const expect = require('chai').expect;
 const { render } = require('../../routes/vcard');
 
 let req = {
-    body: {},
+    body: {}
 };
 
 let res = {
     sendCalledWith: '',
-    send: function(status, data) { 
+    send: function(status, data) {
         this.statusCode = status;
         this.data = data;
     },
     set: function(key, value) {
         this[key] = value;
-    },
+    }
 };
 
 describe('vCard Route', function() {
@@ -25,7 +25,7 @@ describe('vCard Route', function() {
         });
         it('Should return a vcf formatted string ', function() {
             render(req, res);
-            expect(res.data).to.contain( 'BEGIN:VCARD' );
+            expect(res.data).to.contain('BEGIN:VCARD');
         });
         it('should set the text/vcf header', function() {
             render(req, res);
@@ -34,6 +34,6 @@ describe('vCard Route', function() {
         it('should set the content disposition header', function() {
             render(req, res);
             expect(res['Content-Disposition']).to.equal('inline; filename="jprwilson.vcf"');
-        }); 
+        });
     });
 });

@@ -5,3 +5,6 @@ lerna-debug.log
 
 # OSX
 .DS_Store
+
+# coverage reports
+coverage/

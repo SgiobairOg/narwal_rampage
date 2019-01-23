@@ -3,12 +3,12 @@ const expect = require('chai').expect;
 const { ping } = require('../../routes/health');
 
 let req = {
-    body: {},
+    body: {}
 };
 
 let res = {
     sendCalledWith: '',
-    send: function(status, data) { 
+    send: function(status, data) {
         this.statusCode = status;
         this.data = data;
     }
@@ -22,7 +22,7 @@ describe('Health Route', function() {
         });
         it('Should return a status message ', function() {
             ping(req, res);
-            expect(res.data).to.haveOwnProperty( 'status' );
+            expect(res.data).to.haveOwnProperty('status');
         });
     });
 });
