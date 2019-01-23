@@ -1,3 +1,6 @@
+/*jslint node: true */
+'use strict';
+
 const vCardsJS = require('vcards-js');
 const path = require('path');
 
