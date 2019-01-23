@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
     render: function(req, res) {
-        vCard = vCardsJS();
+        const vCard = vCardsJS();
 
         vCard.firstName = 'Jason';
         vCard.middleName = 'P';
@@ -34,10 +34,10 @@ module.exports = {
         vCard.homeAddress.countryRegion = 'Switzerland';
 
         vCard.version = '3.0';
-        
+
         res.set('Content-Type', 'text/vcard; name="jprwilson.vcf"');
         res.set('Content-Disposition', 'inline; filename="jprwilson.vcf"');
 
-        return res.send(202, vCard.getFormattedString());
+        res.send(202, vCard.getFormattedString());
     }
 };
